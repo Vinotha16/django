@@ -1,0 +1,9 @@
+ pip3 --version
+ pip3 install pipenv
+ pipenv install django
+ 
+ cd /root/.local/share/virtualenvs/backend-b5mj06XY     --> created the virtual env
+ 
+ pipenv shell  --> For activate the python virtual env.
+ 
+ django-admin startproject test1   ---> create an test1 django project
