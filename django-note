@@ -4,6 +4,30 @@
  
  cd /root/.local/share/virtualenvs/backend-b5mj06XY     --> created the virtual env
  
- pipenv shell  --> For activate the python virtual env.
+ pipenv shell  --> For activate the python virtual env. --> to run this command on the manage.py file location **** [NOTE]
  
  django-admin startproject test1   ---> create an test1 django project
+ 
+ django-admin startproject test1 .  --> it will assigin current directory as a core directory
+ 
+ python manage.py migrate
+  
+  
+  put a host entry on settings.py -->  ALLOWED_HOSTS = ['192.168.5.10']
+  
+ python manage.py runserver --> to run the server default port 8000
+
+or
+
+python manage.py runserver 192.168.5.10:9000 ---> now it will run the port 9000
+
+
+python manage.py startapp testapp --> create an app
+
+
+
+configure python interpretor on the virtual env
+************************************************
+
+pipenv shell  --> enter into the virtual env
+pipenv --venv  --> it will display the path , copy the path and past it into the vscode configured machine in 
