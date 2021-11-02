@@ -1,0 +1,30 @@
+import base64
+import smtplib
+import mimetypes
+from email.mime.multipart import MIMEMultipart
+from email.mime.image import MIMEImage
+from email.mime.base import MIMEBase
+from email import encoders
+
+msg = MIMEMultipart()
+msg['Subject'] = 'Excel report file'
+msg['From'] = "zippyopstraining@gmail.com"
+msg['To']   = 'zippyopstraining@gmail.com'
+
+
+filename = 'report.xlsx'
+
+fp = open(filename, 'rb')
+xlsx = MIMEBase('application','vnd.ms-excel')
+xlsx.set_payload(fp.read())
+fp.close()
+encoders.encode_base64(xlsx)
+xlsx.add_header('Content-Disposition', 'attachment', filename=filename)
+msg.attach(xlsx)
+
+
+server = smtplib.SMTP('smtp.gmail.com', 587)
+server.starttls()
+server.login("zippyopstraining@gmail.com", "\Qu{t{V7Vs>Z")
+server.sendmail('zippyopstraining@gmail.com', 'zippyopstraining@gmail.com', msg.as_string())
+server.quit()    
